@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar_profile"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                    android:minHeight="?attr/actionBarSize"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <RelativeLayout
+                    android:id="@+id/rl_profile"
+                    android:layout_height="0dp"
+                    android:layout_width="match_parent"
+                    app:layout_constraintHeight_percent="0.25"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/toolbar_profile">
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/toolbar_constraint"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profile_image"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_margin="16dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@drawable/circle_image_bg"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <LinearLayout
+                            android:id="@+id/linear_layout_profile"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="horizontal"
+                            android:layout_marginEnd="32dp"
+                            android:layout_marginStart="32dp"
+                            android:weightSum="3"
+                            app:layout_constraintTop_toTopOf="@id/profile_image"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="@id/profile_image"
+                            app:layout_constraintStart_toEndOf="@id/profile_image">
+
+                            <LinearLayout
+                                android:id="@+id/layout_favorite"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/favorite_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/black"
+                                    android:layout_marginBottom="5dp"
+                                    android:text="@string/zero"
+                                    android:textAlignment="center" />
+
+                                <TextView
+                                    android:id="@+id/textView_favorite"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:textStyle="normal"
+                                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                                    android:text="@string/favorite_recipes"
+                                    android:textAlignment="center" />
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/layout_saved_recipes"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/saved_recipes_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/black"
+                                    android:layout_marginBottom="5dp"
+                                    android:text="@string/zero"
+                                    android:textAlignment="center" />
+
+                                <TextView
+                                    android:id="@+id/textView_saved"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:textStyle="normal"
+                                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                                    android:text="@string/saved_recipes"
+                                    android:textAlignment="center" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/layout_shared_recipes"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/shared_count"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginBottom="5dp"
+                                    android:textSize="16sp"
+                                    android:textColor="@color/black"
+                                    android:text="@string/zero"
+                                    android:textAlignment="center" />
+
+                                <TextView
+                                    android:id="@+id/textView_shared"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:textStyle="normal"
+                                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                                    android:text="@string/shared_recipes"
+                                    android:textAlignment="center" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/texView_username"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/username"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="20dp"
+                            android:textStyle="bold"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/profile_image"
+                            app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tabLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:tabMode="fixed"
+                            app:tabGravity="fill"
+                            app:tabIndicatorColor="@color/black"
+                            app:tabIndicatorHeight="1dp"
+                            app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                            app:tabSelectedTextColor="@android:color/black"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </RelativeLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintHeight_percent="0.67"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rl_profile"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

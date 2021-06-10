@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="recipe"
+            type="com.example.recipeapp.db.DomainRecipe" />
+        <variable
+            name="view"
+            type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.example.recipeapp.recipe.MealDetailViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".recipe.MealDetailFragment">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/recipe_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:contentInsetStart="0dp"
+                android:contentInsetLeft="0dp"
+                android:elevation="20dp"
+                android:fitsSystemWindows="true"
+                android:paddingStart="0dp"
+                android:paddingEnd="20dp"
+                android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:titleTextColor="@color/black_variation"
+                app:layout_constraintHeight_percent=".30"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0">
+            </androidx.appcompat.widget.Toolbar>
+
+            <ImageView
+                android:id="@+id/meals_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:layout_gravity="center"
+                app:RecipeImageView="@{recipe}"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recipe_toolbar"/>
+
+
+            <TextView
+                android:id="@+id/title_recipe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:textColor="@color/white"
+                android:layout_below="@id/recipe_toolbar"
+                android:text="@{recipe.label}"
+                android:textAppearance="@style/whiteTextShadow"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:visibility="@{(viewModel.totalTime != null) ? view.VISIBLE: view.GONE}"
+                android:background="@color/primaryLightColor"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_timer_24"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_marginEnd="12dp"
+                    android:layout_gravity="center"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    android:text="@{viewModel.totalTime}"/>
+
+            </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rl_toolbar"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ingredient_recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="10dp"
+                tools:listitem="@layout/ingredients_list_item"
+                android:layout_marginTop="10dp"/>
+
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

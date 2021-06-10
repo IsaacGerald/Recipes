@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".home.HomeFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.recipeapp.home.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_home_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/home_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="20dp"
+            android:fitsSystemWindows="true"
+            android:paddingStart="0dp"
+            android:paddingEnd="10dp"
+            android:theme="@style/ThemeOverlay.MaterialComponents.Light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:titleTextColor="@color/black_variation">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/acme"
+                    android:text="@string/food"
+                    android:textColor="@color/black_variation"
+                    android:textSize="28sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/acme"
+                    android:text="@string/app"
+                    android:textColor="@color/primaryColor"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_toolbar">
+
+            <include
+                android:id="@+id/chips_include_layout"
+                layout="@layout/chips_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer_FrameLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_below="@id/chips_include_layout"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <include layout="@layout/shimmer_dish_placeholder" />
+
+                    <include layout="@layout/shimmer_dish_placeholder" />
+
+                    <include layout="@layout/shimmer_dish_placeholder" />
+
+                    <include layout="@layout/shimmer_dish_placeholder" />
+
+                    <include layout="@layout/shimmer_dish_placeholder" />
+
+                    <include layout="@layout/shimmer_dish_placeholder" />
+
+                    <include layout="@layout/shimmer_dish_placeholder" />
+
+                    <include layout="@layout/shimmer_dish_placeholder" />
+
+                    <include layout="@layout/shimmer_dish_placeholder" />
+
+                    <include layout="@layout/shimmer_dish_placeholder" />
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_dish"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingTop="8dp"
+                android:layout_below="@id/chips_include_layout"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

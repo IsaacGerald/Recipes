@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.RecipeApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">@color/primaryColor</item>
+        <item name="colorOnPrimary">@color/black_variation</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/primaryColor</item>
+        <item name="colorSecondaryVariant">@color/white_variation</item>
+        <item name="colorOnSecondary">@color/white</item>-->
+        //status bar
+        <item name="android:statusBarColor" tools:targetApi="l">@color/white_variation</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="whiteTextShadow" parent="@android:style/TextAppearance">
+        <item name="android:shadowDx">4</item>
+        <item name="android:shadowDy">4</item>
+        <item name="android:shadowRadius">4</item>
+        <item name="android:shadowColor">@color/black_variation</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Toolbar.Title" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextAppearance.MdcTypographyStyles.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextAppearance.MdcTypographyStyles.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="SearchStyle" parent="Widget.AppCompat.SearchView">
+        <item name="editTextColor">@color/black</item>
+        <item name="closeIcon">@drawable/ic_close_24</item>
+        <item name="android:hint">Search</item>
+        <item name="android:queryHint">Search</item>
+        <item name="hintTextColor">@color/black</item>
+
+    </style>
+
+    <style name="mealActionbar" parent="Theme.RecipeApp">
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+    </style>
+
+    <style name="ImagePreviewerTheme" >
+        <item name="android:windowIsFloating">false</item>
+    </style>
+</resources>

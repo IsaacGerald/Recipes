@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="clicklistener"
+            type="com.example.recipeapp.adapters.OnclickListener" />
+
+        <variable
+            name="recipe"
+            type="com.example.recipeapp.db.DomainRecipe" />
+
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="10dp"
+        android:onClick="@{() -> clicklistener.onClick(recipe)}">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/view_image"
+            android:layout_width="90dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="5dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+            <ImageView
+                android:id="@+id/ImageView_mealList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:DomainRecipeImageView="@{recipe}"
+                android:elevation="20dp" />
+        </androidx.cardview.widget.CardView>
+
+
+
+        <TextView
+            android:id="@+id/textView_mealLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:fontFamily="@font/amaranth"
+            android:text="@{recipe.label}"
+            android:lineSpacingMultiplier="1.0"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@+id/textView_mealSource"
+            app:layout_constraintEnd_toStartOf="@id/favorite_layout"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/view_image"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/textView_mealSource"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:textStyle="normal"
+            android:text="@{recipe.source}"
+            android:textAlignment="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/favorite_layout"
+            app:layout_constraintStart_toEndOf="@id/view_image"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toBottomOf="@+id/textView_mealLabel" />
+
+        <RelativeLayout
+            android:id="@+id/favorite_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/textView_mealSource">
+            <ImageView
+                android:id="@+id/favorite_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_favorite_24"/>
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

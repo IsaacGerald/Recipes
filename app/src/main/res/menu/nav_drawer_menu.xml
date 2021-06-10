@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/homeFragment"
+        android:title="@string/home"
+        app:showAsAction="ifRoom"
+        android:orderInCategory="10"
+        android:icon="@drawable/ic_filled_home_24"/>
+    <item android:id="@+id/action_share"
+        android:title="@string/share_app"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_share_24"
+        android:orderInCategory="60"/>
+
+    <item android:id="@+id/menuFragment2"
+        android:title="@string/settings"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:orderInCategory="70"/>
+    <item android:id="@+id/profileFragment"
+        android:title="@string/account"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_filled_person_24"
+        android:orderInCategory="20"/>
+    <item android:id="@+id/shoppingFragment"
+        android:title="@string/shopping_cart"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_shopping_cart_24"
+        android:orderInCategory="50"/>
+    <item android:id="@+id/savedFragment"
+        android:title="@string/bookmarked_recipes"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_bookmark_filled_24"
+        android:orderInCategory="40"/>
+    <item android:id="@+id/favoriteRecipeFragment"
+        android:title="@string/favorite"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_favorite_filled_24"
+        android:orderInCategory="30"/>
+
+</menu>
